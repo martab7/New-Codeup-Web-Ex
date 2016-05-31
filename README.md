@@ -8,3 +8,5 @@
  * HTML
  * CSS
  * GitHub
+
+ This is the change for the second commit.
