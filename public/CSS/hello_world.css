@@ -1,0 +1,60 @@
+html, body {
+	overflow-x: hidden;
+}
+
+body {
+	background: #008D8A;
+	font-family: 'Lato', sans-serif;
+}
+
+h1, h2 {
+	color: #008D8A;
+	font-family: 'Lato', sans-serif;
+}
+
+h1 {
+	font-size: 30px;
+	font-weight: bold;
+}
+
+h2 {
+	font-size: 24px;
+	font-weight: lighter;
+}
+
+li {
+	list-style: disc;
+}
+
+header {
+	margin-top: 0;
+	margin-bottom: 0;
+	margin-left: 0;
+	margin-right: 0;
+	background-image: url(https://snap-photos.s3.amazonaws.com/img-thumbs/960w/LEJ7HJ5BEA.jpg);
+}
+header .hero {
+   text-align: center;
+   display:block;
+   position: center;
+ }
+ header .hero h1 {
+   font-size:48px;
+   font-weight: normal;
+   margin:95px 0 0;
+ }
+ header .hero p {
+   font-size: 22px;
+   line-height: 26px;
+   font-weight: 100;
+   margin:10px 0 40px;
+ }
+
+p {
+	
+	color: #FF6B19;
+}
+
+.about {
+	background-color: #FFF;
+}

@@ -1,0 +1,67 @@
+body {
+	font-family: "Times New Roman", sans-serif;
+}
+
+
+header, a {
+	color: purple;
+	text-decoration: underline;
+	font-weight: bold;
+	font-size: 30px;
+}
+
+#ribbon {
+	position: fixed;
+	top: 0px;
+	right: 0px;
+}
+.boxes {
+	border: 1px solid black;
+	padding: 10px;
+	color: black;
+	width: 50px;
+	height: 50px;
+	font-weight: bold;
+	color: #fff;
+	margin-top: 50px;
+	margin-right: 50px;
+	font-size: 15px;
+	position: relative;
+}
+
+.boxes>img {
+	position: absolute;
+	top: -40px;
+	left: 50px;
+}
+
+#red {
+	background-color: red;
+	float: left;
+}
+
+#orange {
+	background-color: orange;
+	float: left;
+}
+
+#yellow {
+	background-color: yellow;
+	float: left;
+}
+
+#green {
+	background-color: green;
+	clear: left;
+	float: left;
+}
+
+#blue {
+	background-color: blue;
+	float: left;
+}
+
+#violet{
+	background-color: violet;
+	float: left;
+}

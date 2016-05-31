@@ -1,0 +1,228 @@
+body {
+	color: #000;
+}
+
+.botswana-flag {
+	background-color: #19C4FF;
+	border: 1px solid black;
+	width: 800px;
+	height: 420px;
+	position: relative;
+	left: 100px;
+}
+
+.middle-white {
+	background-color: #fff;
+	width: 800px;
+	height: 150px;
+	position: absolute;
+	top: 138px;
+}
+
+.middle-black {
+	background-color: #000;
+	width: 800px;
+	height: 125px;
+	position: absolute;
+	top: 151px;
+}
+
+.congo-flag {
+	background-color: #FFE315;
+	border: 1px solid black;
+	width: 800px;
+	height: 420px;
+	position: relative;
+	left: 100px;
+	overflow: hidden;
+}
+
+.green-side {
+	background-color: #009B41;
+	width: 800px;
+	height: 420px;
+	position: absolute;
+	bottom: 120px;
+	right: 333px;
+	transform: rotate(140deg);
+}
+.red-side {
+	background-color: #DA3805;
+	width: 800px;
+	height: 420px;
+	position: absolute;
+	top: 120px;
+	left: 333px;
+	transform: rotate(140deg);
+}
+
+.turkey-flag {
+	background-color: #DA2700;
+	border: 1px solid black;
+	width: 800px;
+	height: 420px;
+	position: relative;
+	left: 100px;
+}
+
+.white-circle {
+	background-color: #fff;
+	border-radius: 50%;
+	width: 225px;
+	height: 225px;
+	position: absolute;
+	left: 160px;
+	top: 105px;
+}
+
+.red-circle {
+	background-color: #DA2700;
+	border-radius: 50%;
+	width: 176px;
+	height: 176px;
+	position: absolute;
+	left: 215px;
+	top: 129px;
+}
+
+/*---star--*/
+.white-star {
+	position: absolute;
+	left: 400px;
+	top: 140px;
+}
+
+#star {
+    width: 0;
+    height: 0;
+    margin: 50px 0;
+    color: #fff;
+    position: relative;
+    display: block;
+    border-right: 100px solid transparent;
+    border-bottom: 70px solid #fff;
+    border-left: 100px solid transparent;
+    -moz-transform: rotate(35deg);
+    -webkit-transform: rotate(35deg);
+    -ms-transform: rotate(35deg);
+    -o-transform: rotate(35deg);
+}
+
+#star:before {
+    height: 0;
+    width: 0;
+    position: absolute;
+    display: block;
+    top: -45px;
+    left: -65px;
+    border-bottom: 80px solid #fff;
+    border-left: 30px solid transparent;
+    border-right: 30px solid transparent;
+    content: '';
+    -webkit-transform: rotate(-35deg);
+    -moz-transform: rotate(-35deg);
+    -ms-transform: rotate(-35deg);
+    -o-transform: rotate(-35deg);
+}
+
+#star:after {
+    content: '';
+    width: 0;
+    height: 0;
+    position: absolute;
+    display: block;
+    top: 3px;
+    left: -105px;
+    color: #fff;
+    border-right: 100px solid transparent;
+    border-bottom: 70px solid #fff;
+    border-left: 100px solid transparent;
+    -webkit-transform: rotate(-70deg);
+    -moz-transform: rotate(-70deg);
+    -ms-transform: rotate(-70deg);
+    -o-transform: rotate(-70deg);
+}
+
+/*--BMW--*/
+.outer-circle {
+	background-color: #252525;
+	border: 6px solid black;
+	border-radius: 50%;
+	width: 225px;
+	height: 225px;
+	position: relative;
+	margin: auto;
+}
+
+.inner-circle {
+	background-color: #fff;
+	border: 6px solid #363636;
+	border-radius: 50%;
+	width: 150px;
+	height: 150px;
+	position: absolute;
+	top: 30px;
+	left: 31px;
+	overflow: hidden;
+}
+
+.square-1 {
+	width: 100px;
+	height: 100px;
+	border: 3px solid #363636;
+	background-color: #19C4FF;
+	position: absolute;
+	top: -25px;
+	left: -29px;
+}
+
+.square-2 {
+width: 100px;
+	height: 100px;
+	border: 3px solid #363636;
+	background-color: #19C4FF;
+	position: absolute;
+	bottom: -34px;
+	right: -30px;
+}
+
+.letter-b {
+	font-family: Arial;
+	color: #fff;
+	font-size: 38px;
+	position: absolute;
+	top: 45px;
+	left: 14px;
+	transform: rotate(-65deg);
+}
+
+.letter-m {
+	font-family: Arial;
+	color: #fff;
+	font-size: 38px;
+	position: absolute;
+	top: -5px;
+	left: 97px;
+}
+
+.letter-w {
+	font-family: Arial;
+	color: #fff;
+	font-size: 38px;
+	position: absolute;
+	top: 45px;
+	right: 14px;
+	transform: rotate(65deg);
+}
+
+#one {
+	background-color: #fff;
+	border: 6px solid #363636;
+	border-radius: 50%;
+	width: 150px;
+	height: 150px;
+	position: absolute;
+	top: 30px;
+	left: 31px;
+	overflow: hidden;
+}
