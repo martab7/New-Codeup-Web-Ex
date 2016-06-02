@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>For Loops</title>
+</head>
+<body>
+	<script>
+		/*--- Question 1 ---*/
+
+		for (var i = 1; i <= 10; i++) {
+			Num = "";
+
+			for(var num = 1; num <= i; num++) {
+				if(i == 10) {
+					Num = Num + 0;
+				} else {
+					Num = Num + i;
+				}
+			};
+
+			console.log(Num);
+}
+		/*--- Question 2 ---*/
+
+		for (var i = 1; i <=10; i++) {
+			result = 7 * i;
+			console.log("7 x " + i + " = " + result)
+		}
+
+		/*--- Question 3 ---*/
+
+		for (var i = 0; i <= 10; i++) {
+			var random = Math.floor(Math.random() * 180) + 20
+
+			if(random%2) {
+				console.log(random + " is odd.")
+			} else {
+				console.log(random + " is even.")
+			}
+		}
+
+		/*--- Question 4 ---*/
+
+		for (var i = 100; i > 0; i= i - 5) {
+			console.log(i);
+		};
+		0
+		4
+		3
+		2
+		1
+		1
+		4
+		3
+		2
+		1
+		2
+		4
+		3
+		2
+		1
+		3
+		4
+		3
+		2
+		1
+
+	</script>
+</body>
+</html>
