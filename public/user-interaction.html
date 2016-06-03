@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>User Interaction Exercise</title>
+</head>
+<body>
+
+<script>
+	"use strict";
+
+
+		var name= "";
+		
+		while(name == "") {
+			name = prompt("May I have your name, please?");
+		}
+
+		// TODO: Ask the user for their name.
+		//       Keep asking if an empty input is provided.
+
+		// TODO: Show an alert message that welcomes the user based on their input.
+		alert("Welcome " + name + "!");
+
+		// TODO: Ask the user if they like pizza.
+		//       Based on their answer show a creative alert message.
+
+		if(confirm("Do you like pizza?")) {
+			alert("Great! Me too!");
+		} else {
+			alert("Sorry to hear that.")
+		}
+
+</script>
+
+</body>
+</html>
