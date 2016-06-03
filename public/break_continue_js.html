@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Breaks Exercise</title>
+</head>
+<body>
+
+	<script>
+
+	/*--- Question 1 ---*/
+
+		for (var i = 1; i < 10; i++) {
+
+		var random = Math.floor((Math.random()*50)+1);
+		console.log("At loop: " + i + ", our random number is " + random)
+		if(random % 2 == 1) {
+				console.log("We have came across an odd random number: " + random);
+
+				break;
+			}
+		};
+
+		/*--- Alternative and intended purpose ---*/
+
+		var randomNum;
+
+		do{
+			randomNum = Math.floor((Math.random()*50)+1);
+		} while (randomNum % 2 === 0)
+
+	/*--- Question 2 ---*/
+
+	console.log('Random odd number to skip is ' +randomNum);
+
+	for (var i = 1; i <= 50; i++) {
+		if (i % 2 === 0) {
+			continue;
+		};
+
+		if (randomNum === i) {
+			console.log("Yikes! Skipping number" + i);
+		} else {
+			console.log("Here is an odd number: " + i);
+		}
+	}
+	
+	</script>
+</body>
+</html>
