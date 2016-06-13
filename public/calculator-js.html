@@ -1,0 +1,73 @@
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="This is a calculator made with JavaScript">
+    
+    <title>Calculator</title>
+
+    <!-- Bootstrap -->
+    <link href="css_bootstrap/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <script src="https://use.fontawesome.com/a3e89361a3.js"></script>
+
+    <!-- CSS- Darkly Theme-->
+    <link rel="stylesheet" type="text/css" href="CSS/calculator1.css">
+
+    <!-- CSS  Override -->
+    <link rel="stylesheet" type="text/css" href="CSS/calculator.css">
+
+
+  </head>
+
+  <body>
+  <div class="wrapper">
+
+    <div class="container col-xs-12" align="center">
+                    <div class="form-group">
+                      <label for="inputEmail" class="control-label">Calculate Me</label>
+                        <input type="text" readonly="true" class="form-control" id="left">
+                        <input type="text" readonly="true" class="form-control" id="middle">
+                        <input type="text" readonly="true" class="form-control" id="right">
+                    </div>
+
+                    <div class="btn-group btn-group-justified">
+                      <a href="#" class="button btn btn-default" data-value="7">7</a>
+                      <a href="#" class="button btn btn-default" data-value="8">8</a>
+                      <a href="#" class="button btn btn-default" data-value="9">9</a>
+                      <a href="#" class="button btn btn-success btn-default" data-value="/">/</a>
+                    </div>
+                    <div class="btn-group btn-group-justified">
+                      <a href="#" class="button btn btn-default" data-value="4">4</a>
+                      <a href="#" class="button btn btn-default" data-value="5">5</a>
+                      <a href="#" class="button btn btn-default" data-value="6">6</a>
+                      <a href="#" class="button btn btn-success btn-default" data-value="x">x</a>
+                    </div>
+                    <div class="btn-group btn-group-justified">
+                      <a href="#" class="button btn btn-default" data-value="1">1</a>
+                      <a href="#" class="button btn btn-default" data-value="2">2</a>
+                      <a href="#" class="button btn btn-default" data-value="3">3</a>
+                      <a href="#" class="button btn btn-success btn-default" data-value="-">-</a>
+                    </div>
+                     <div class="btn-group btn-group-justified">
+                      <a href="#" class="button btn btn-default" data-value=".">.</a>
+                      <a href="#" class="button btn btn-default" data-value="0">0</a>
+                      <a href="#" class="button btn btn-default" data-value="=">=</a>
+                      <a href="#" class="button btn btn-success btn-default" data-value="+">+</a>
+                    </div>
+                    <div class="btn-group btn-group-justified">
+                      <a href="#" class="btn btn-primary btn-default btn-lg btn-block" id="clear">Clear</a>
+
+                    </div>
+    </div>
+</div>
+    
+     <!-- JS -->
+    <script type="text/javascript" src="js/calculator.js"></script>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js_bootstrap/bootstrap.min.js"></script>
+  </body>
+</html>

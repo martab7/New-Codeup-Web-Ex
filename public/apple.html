@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+
+<html>
+
+	<head>
+	
+		<title>Oh me Oh my O</title>
+		
+		<meta charset="utf8">
+		<style type="text/css">
+			body{
+				background-color: pink;
+			}
+			/*CSS for the color in the apple (note div color is styled inline */
+			.color{
+				width: 12rem;
+				height: 2rem;
+			}
+			/*CSS for the white divs covering the colors to make a shape*/
+			.cover{
+				background-color: white;
+				z-index:2;
+			}
+			.boxtop {
+				width: 6rem;
+				height: 4rem;
+			}
+			.boxbottom {
+				width: 6rem;
+				height: 8rem;
+			}
+			#coverup{
+				float: left;
+				display: flex;
+			}
+			#bite{
+				width: 6rem;
+				height:6rem;
+				border-radius: 50%;
+				margin-top: 3rem;
+				margin-left: -3rem; 
+			}
+			#top-left{
+				background: radial-gradient(at bottom right,rgba(0,0,0,0) 70%,#fff 0);
+			}
+			#top-right{
+				background: radial-gradient(at bottom left,rgba(0,0,0,0) 70%,#fff 0);
+				margin-left:10 rem; 
+			}
+			#bottom-left{
+				background: radial-gradient(at top right,rgba(0,0,0,0) 70%,#fff 0);
+			}
+			#bottom-right{
+				background: radial-gradient(at top left,rgba(0,0,0,0) 70%,#fff 0);
+				margin-left:10 rem; 
+			}
+			
+		</style>
+
+	</head>
+
+
+	<body>
+		<div id="coverup">
+			<div class="flexcol">
+				<div id="top-left" class="cover boxtop"></div>
+				<div id="bottom-left" class="cover boxbottom"></div>
+			</div>
+			<div class="flexcol">
+				<div id="top-right" class="cover boxtop"></div>
+				<div id="bottom-right" class="cover boxbottom"></div>
+			</div>
+			<div id="bite" class="cover"></div>
+		</div>
+		<div id='applecolor'>
+			<div style="background-color:#A4D67E"class='color'></div>
+			<div style="background-color:#FAD565"class='color'></div>
+			<div style="background-color:#F6B466"class='color'></div>
+			<div style="background-color:#E88A88"class='color'></div>
+			<div style="background-color:#BE88C3"class='color'></div>
+			<div style="background-color:#79C1EC"class='color'></div>
+		</div>
+		
+	</body>
+
+</html>
