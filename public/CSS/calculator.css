@@ -26,7 +26,18 @@ padd
   float: none;
   display: table-cell;
   width: 1%;
+  font-size: 20;
 }
 .btn-group-justified > .btn-group .btn {
   width: 100%;
+}
+
+.form-control {
+  padding: 10px 15px;
+  font-size: 25px;
+  text-align: center;
+}
+
+.form-control-operator {
+  text-align: left;
 }
