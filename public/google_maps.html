@@ -17,10 +17,12 @@
 	<script type="text/javascript">
     (function(window, google) {
         "use strict";
-        var map;
-        // var markerOne;
-        // var markerTwo;
-        // var markerThree;
+
+		var map = new google.maps.Map(document.getElementById('map'), {
+	          zoom: 12,
+	          center: {lat: 29.497100, lng: -98.515039}
+	        });
+
         var image = {
 		  url: 'http://image000.flaticon.com/icons/png/128/8/8132.png',
 		  // This marker is 20 pixels wide by 32 pixels high.
@@ -48,15 +50,7 @@
 	    	  content: 'Jason\'s Deli'
 	    	}
 	    ];
-
-        function initMap() {
-	        map = new google.maps.Map(document.getElementById('map'), {
-	          zoom: 12,
-	          center: {lat: 29.497100, lng: -98.515039}
-	        });
-	    };
-
-	    initMap();
+	    
 	    markers.forEach(function(marker) {
 	    	var restrauntMarker = new google.maps.Marker({
 	    		map: map,
