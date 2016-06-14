@@ -4,11 +4,11 @@
 	<title>jQuery</title>
 </head>
 <body>
-	<div class="idk">
+	<div>
 		<h1 id="greeting">Hello World!</h1>
-		<p class="dialogue">It's your boy Tony the Tiger!</p>
-		<h4>This is my list of great things!</h4>
-		<ul class="list">
+		<p class="idk">It's your boy Tony the Tiger!</p>
+		<h4 class="idk">This is my list of great things!</h4>
+		<ul class="list idk">
 			<li>Pizza</li>
 			<li id="the_best">Frosted Flakes</li>
 			<li>Mashed Potatoes</li>
@@ -18,8 +18,7 @@
 	<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
 	<script>
 	$(document).ready(function() {
-		var contents = $('#greeting');
-	    alert(contents.html());
+		$('.idk').css('border-style', 'solid').css('border-width', '1px');
 	});
 	</script>
 </body>
