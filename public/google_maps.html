@@ -15,82 +15,64 @@
 	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDUkpOYXPuKivxupZp49HoDVfCe2gWk-zc"></script>
 	<!-- AIzaSyDUkpOYXPuKivxupZp49HoDVfCe2gWk-zc -->
 	<script type="text/javascript">
-    (function() {
+    (function(window, google) {
         "use strict";
+        var map;
+        // var markerOne;
+        // var markerTwo;
+        // var markerThree;
+        var image = {
+		  url: 'http://image000.flaticon.com/icons/png/128/8/8132.png',
+		  // This marker is 20 pixels wide by 32 pixels high.
+		  size: new google.maps.Size(128, 128),
+		  // The origin for this image is (0, 0).
+		  origin: new google.maps.Point(0, 0),
+		  // The anchor for this image is the base of the flagpole at (0, 32).
+		  anchor: new google.maps.Point(0, 32)
+		};
 
-        // Set our map options
-        var mapOptions = {
-            // Set the zoom level
-            zoom: 12,
+        var markers = [
+	        { marker: 'One',
+		      lat: 29.519861,
+		      lng: -98.571469,
+		      content: 'Indian Palace'
+	    	},
+	    	{ marker: 'Two',
+		   	  lat: 29.449403,
+		      lng: -98.502532,
+		      content: 'Pho Sure'
+		  	},
+	    	{ marker: 'Three',
+	    	  lat: 29.521172,
+	    	  lng: -98.493752,
+	    	  content: 'Jason\'s Deli'
+	    	}
+	    ];
 
-            // This sets the center of the map at our location
-            center: {
-                lat:  29.497100,
-                lng: -98.515039
-            }
-        };
+        function initMap() {
+	        map = new google.maps.Map(document.getElementById('map'), {
+	          zoom: 12,
+	          center: {lat: 29.497100, lng: -98.515039}
+	        });
+	    };
 
-        // Render the map
-        var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+	    initMap();
+	    markers.forEach(function(marker) {
+	    	var restrauntMarker = new google.maps.Marker({
+	    		map: map,
+	    		icon: image,
+	    		animation: google.maps.Animation.DROP,
+	    		position: { lat: marker.lat , lng: marker.lng },
+	    	});
 
-        var geocoder = new google.maps.Geocoder();
-        var restaurantOne = "8474 Fredericksburg Rd, San Antonio, TX, 78229";
-        var restaurantTwo = "741 W Ashby Pl, San Antonio, TX, 78212";
-        var restaurantThree = "25 NE Interstate 410 Loop, San Antonio";
-        var center = "3343 West Ave, San Antonio, TX, 78213"
-
-		        // Geocode our address
-		geocoder.geocode({ "address": center }, function(results, status) {
-
-		   // Check for a successful result
-		   if (status == google.maps.GeocoderStatus.OK) {
-
-		       // Recenter the map over the address
-		       map.setCenter(results[0].geometry.location);
-		   } else {
-
-		       // Show an error message with the status if our request fails
-		       alert("Geocoding was not successful - STATUS: " + status);
-		   }
-		});
-
-		var indianPalace = { lat: 29.519861, lng: -98.571469 };
-		var phoSure = { lat: 29.449403, lng: -98.502532 };
-		var jasonsDeli = { lat: 29.521172, lng: -98.493752 };
-
-		// Add the marker to our existing map
-		var markerOne = new google.maps.Marker({
-		    position: indianPalace,
-		    map: map
-		});
-
-		var markerTwo = new google.maps.Marker({
-			position: phoSure,
-			map: map
-		})
-
-		var markerThree = new google.maps.Marker({
-			position: jasonsDeli,
-			map: map
-		})
-
-		// Create a new infoWindow object with content
-		var infowindowOne = new google.maps.InfoWindow({
-		    content: "Indian Palace."
-		});
-		var infowindowTwo = new google.maps.InfoWindow({
-			content: "Pho Sure"
-		})
-
-		var infoWindowThree = new google.maps.InfoWindow({
-			content: "Jason's Deli"
-		})
-		
-		// Open the window using our map and marker
-		infowindowOne.open(map, markerOne);
-		infowindowTwo.open(map, markerTwo);
-		infoWindowThree.open(map, markerThree);
-    })();
+	    	restrauntMarker.addListener('click', function() {
+			var infowindow = new google.maps.InfoWindow({
+				content: marker.content
+			});
+			infowindow.open(map, restrauntMarker)
+			});
+	    });
+    })(window, google);
     </script>
 	</div>
 </body>
