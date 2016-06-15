@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Konami Code</title>
+</head>
+<body>
+    <h1>Konami Code</h1>
+
+    <p>Want 3 lives?! Punch in your code:</p>
+
+
+    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script>
+        "use strict";
+
+      	var masLives = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65, 13];
+      	var index = 0;
+
+        $(document).keyup(function(event){
+            if(masLives[index] === event.keyCode) {
+            	index++;
+            } else {
+            	index = 0;
+            };
+            console.log(index);
+   			if(index === masLives.length) {
+   				console.log('hi');
+   				console.log(window.location = 'https://www.youtube.com/watch?v=dQw4w9WgXcQ')
+   				index = 0;
+   			}; 
+
+        });
+
+        var index = 0;
+    </script>
+</body>
+</html>

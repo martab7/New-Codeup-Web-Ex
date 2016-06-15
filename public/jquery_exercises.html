@@ -18,8 +18,20 @@
 	<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
 	<script>
 	$(document).ready(function() {
-		$('h1, p, ul').css('border-style', 'solid').css('border-width', '1px');
-		$('p, ul').css('background-color', 'salmon');
+		$('h1').click(function() {
+			$('h1').css('background-color', 'red');
+		});
+		$('p').dblclick(function() {
+			$('p').css('font-size', '30px');
+		});
+		$('li').hover(
+			function(){
+				$('li').css('color', 'red');
+			},
+			function(){
+				$('li').css('color', 'black');
+			}
+		);
 	});
 	</script>
 </body>
