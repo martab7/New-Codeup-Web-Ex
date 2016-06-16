@@ -82,7 +82,7 @@
 	<script>
 		$('dd').addClass('invisible');
 		$('a').click(function(event) {
-                $('.invisible').toggle();
+                $('.invisible').fadeToggle();
             });
 		$('ul').each(function(index, element){
 			$(element).children().first().css('font-weight', 'bold');
@@ -90,8 +90,8 @@
 		$('li').click(function(event){
 				$(this).parent().hide();
 		})
-		$('h3').click(function(){
-			$(this).next().show();
+		$('h3').click(function(index, element){
+			$(this).next().fadeToggle();
 		});
 	</script>
 </body>
