@@ -24,12 +24,9 @@ var student = {
 };
 
 var awesomeGrade = 80;
-var nameForm = document.getElementById('name');
-var subject = document.getElementById('subject');
-var grade = document.getElementById('grade');
-var saveButton = document.getElementById('save-name');
-var addGrade = document.getElementById('add-grade');
-var calAvgBtn = document.getElementById('calculate-average');
+var nameForm = $('#name');
+var subject = $('#subject');
+var grade = $('#grade'); 
 var studentName = document.getElementById('student-name');
 var table = document.getElementById('grades');
 var averageCalculated = document.getElementById('student-average');
@@ -39,21 +36,21 @@ var studentPractice = document.getElementById('student-Practice');
 
 //----------Click Action Functions-----------
 var submitName = function() {
-    addGrade.removeAttribute('disabled');
-    calAvgBtn.removeAttribute('disabled');
-    studentName.innerHTML = nameForm.value;
-    student.name = nameForm.value;
+    $('#add-grade').removeAttr('disabled');
+    $('#calculate-average').removeAttr('disabled');
+    $('#student-name').text($('#name').val());
+    student.name = $('#name').val();
 }
 
 var updateStudentInfo = function() {
-   student.subjects.push(subject.value);
-   student.grades.push(Number(grade.value));
+   student.subjects.push(subject.val());
+   student.grades.push(Number(grade.val()));
    var newRow = document.createElement('tr');
-   var newContent = "<td>"+ subject.value +"</td>" + "<td>"+ grade.value +"</td>";
+   var newContent = "<td>"+ subject.val() +"</td>" + "<td>"+ grade.val() +"</td>";
     newRow.innerHTML = newContent;
     table.insertBefore(newRow, table.firstChild);
-    subject.value = '';
-    grade.value = '';
+    subject.val('');
+    grade.val('');
 };
 
  var calculateAverage = function () {
@@ -67,7 +64,7 @@ var updateStudentInfo = function() {
         averageCalculated.innerHTML = average;
 
         var isAwesome = function () {
-        return calculateAverage() > awesomeGrade;
+        return calculateAverage() >= awesomeGrade;
         }
 
         if(isAwesome) {
@@ -79,9 +76,9 @@ var updateStudentInfo = function() {
 
 
 //---------Button Commands-------------------
-saveButton.addEventListener('click', submitName, false);
-addGrade.addEventListener('click', updateStudentInfo, false);
-calAvgBtn.addEventListener('click', calculateAverage, false);
+$('#save-name').click(submitName);
+$('#add-grade').click(updateStudentInfo);
+$('#calculate-average').click(calculateAverage);
 
 
 
