@@ -54,15 +54,45 @@
 		<dt><h4>Where can I find a park map?</h4></dt>
 		<dd>You can view maps on specific park websites or download maps from the Harpers Ferry Center map collection.</dd>
 	</dl>
+	<h2>Some Natinoal Parks</h2>
+	<h3>Kings Canyon National Park</h3>
+		<ul>
+			<li>This is a National Park which was first established in 1940 and the area in which the park covers is 461,901 acres of land.</li>
+			<li>This park can be located the American State of California and is found South of Sierra Nevada.</li>
+			<li>The reason why the park was formed was to help protect the General Grant Grove with the large sequoias.</li>
+			<li>The area with sequoias is a good 3,100 acres with almost 15,800 sequoia trees found here.</li>
+		</ul>
+	<h3>Eisenhower National Site</h3>
+		<ul>
+			<li>Eisenhower National Historic Site is the home and farm of General and President Dwight D. Eisenhower.</li>
+			<li>It is located in Cumberland Township, Adams County, Pennsylvania, just outside of Gettysburg.</li>
+			<li>Purchased by then-General Eisenhower and his wife Mamie in 1950, the farm served as a weekend retreat for the President and a meeting place for world leaders, and became the Eisenhowers' home after they left the White House in 1961.</li>
+			<li>It was also a successful cattle operation, with a show herd of black Angus cattle.</li>
+		</ul>
+	<h3>Yellowstone National Park</h3>
+		<ul>
+			<li>Set aside in 1832, forty years before Yellowstone was established in 1872, it was actually the nation's oldest national reservation, set aside to preserve and distribute a utilitarian resource (hot water), much like our present national forests.</li>
+			<li>In 1921, an act of Congress established Hot Springs as a national park.</li>
+			<li>Yosemite became a park before Yellowstone, but as a state park. Disappointed with the results 26 years later in 1890, Congress made Yosemite one of three additional national parks, along with Sequoia and General Grant, now part of Kings Canyon. Mount Rainier followed in 1899.</li>
+			<li>Within the past two million years, episodic volcanic eruptions have occurred in the Yellowstone area—three of them major.</li>
+		</ul>
 </div>
 
 	<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
 	<script>
 		$('dd').addClass('invisible');
 		$('a').click(function(event) {
-
-                $('dd').toggleClass('invisible');
+                $('.invisible').toggle();
             });
+		$('ul').each(function(index, element){
+			$(element).children().first().css('font-weight', 'bold');
+			});
+		$('li').click(function(event){
+				$(this).parent().hide();
+		})
+		$('h3').click(function(){
+			$(this).next().show();
+		});
 	</script>
 </body>
 </html>
