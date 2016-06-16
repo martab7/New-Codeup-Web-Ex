@@ -82,16 +82,13 @@
 	<script>
 		$('dd').addClass('invisible');
 		$('a').click(function(event) {
-                $('.invisible').fadeToggle();
+                $('.invisible').slideToggle();
             });
 		$('ul').each(function(index, element){
 			$(element).children().first().css('font-weight', 'bold');
 			});
-		$('li').click(function(event){
-				$(this).parent().hide();
-		})
 		$('h3').click(function(index, element){
-			$(this).next().fadeToggle();
+			$(this).next().slideToggle();
 		});
 	</script>
 </body>
