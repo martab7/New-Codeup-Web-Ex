@@ -2,7 +2,8 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>Ajax Blog</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Ajax - Blog</title>
 	<!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" type="text/css" href="CSS/ajax_blog.css">
 
@@ -28,8 +29,9 @@
 
 		    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 		      <ul class="nav navbar-nav">
-		        <li class="active"><a href="#">Home <span class="sr-only">(current)</span></a></li>
+		        <li><a href="ajax_index.html">Home</a></li>
 		        <li><a href="#">About</a></li>
+						<li class="active"><a href="#">Blog <span class="sr-only">(current)</span></a></li>
 		      </ul>
 		      <form class="navbar-form navbar-left" role="search">
 		        <div class="form-group">
@@ -83,13 +85,12 @@
 
 	</div>
 
-<div class="pagers">
-	<ul class="pager">
-		  <li class="previous disabled"><a href="#">&larr; Older</a></li>
-		  <li class="next"><a href="#">Newer &rarr;</a></li>
-	</ul>
-</div>
-
+	<div class="pagers">
+		<ul class="pager">
+				<li class="previous disabled"><a href="#">&larr; Older</a></li>
+				<li class="next"><a href="#">Newer &rarr;</a></li>
+		</ul>
+	</div>
 
 <!-- Latest compiled and minified JavaScript -->
 
@@ -110,7 +111,13 @@
         			})
         			return string;
         		};
-        		$('#posts').prepend("<h3>" + entry.title + "</h3><p>" + entry.content + "</p><h6>" + entry.date + "</h6>" + catButton())
+						var completeBlogEntry = "";
+							completeBlogEntry += "<h3>" + entry.title + "</h3>";
+							completeBlogEntry += "<div class='col-sm-8 enter_image'><img class='object-fit_fill' src='" + entry.image + "' alt='" + entry.altText + "'></div>";
+							completeBlogEntry += "<p>" + entry.content + "</p>";
+							completeBlogEntry += "<h6>" + entry.date + "</h6>";
+							completeBlogEntry += catButton();
+        		$('#posts').prepend(completeBlogEntry);
             });
 		});
 
