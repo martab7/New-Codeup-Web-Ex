@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Weather</title>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+<link href="CSS/weather_api.css" rel="stylesheet">
+</head>
+
+<body>
+  <div class="container">
+    <h1>Weather API<small id="searched_location"></small></h1>
+    <div class="container marketing">
+
+      <!-- Three columns of text below the carousel -->
+      <div id="current-weather" class="row">
+      <div class="search" align="center">
+        <form class="search_bar col-sm-4" role="search">
+          <div class="form-group">
+            <input id="location" type="text" class="form-control" placeholder="Location">
+          </div>
+          <a id="submit-location" type="submit" class="btn btn-default">Search</a>
+        </form>
+      </div>
+      <div id="map">
+
+      </div>
+    </div>
+  </div>
+
+
+<!-- End of HTML -->
+<!-- Start of JS -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDUkpOYXPuKivxupZp49HoDVfCe2gWk-zc"></script>
+  <script>
+  (function() {
+  //
+  // var latitude = 0;
+  // var longitude = 0;
+  // var address = ;
+
+  function searchLocation() {
+    $('#searched_location').text('  ' + $('#location').val());
+
+  };
+
+  $.ajax("http://api.openweathermap.org/data/2.5/forecast/daily", {
+      data: {
+          APPID: "c30e7489481df419a846324750b18794",
+          lat:    29.423017,
+          lon:   -98.48527,
+          units: "imperial",
+          cnt: 3
+      }
+  }).done(function(weather) {
+    console.log(weather);
+    var content = " ";
+    weather.list.forEach(function(day){
+      var date = new Date(day.dt*1000);
+        content += "<div class='col-sm-4 day' align='center'><p id='timestamp'>" + date + "</p>";
+        content += "<p><span>" + Math.round(day.temp.max) + "&deg/" + Math.round(day.temp.min) + "&deg</span></p>";
+        content += "<img src='http://openweathermap.org/img/w/" + day.weather[0].icon + ".png'>";
+        content += "<p><span>" + day.weather[0].main + "</span>: " + day.weather[0].description + "</p>";
+        content += "<p><span>Humidity</span>: " + day.humidity + "</p>";
+        content += "<p><span>Wind</span>: " + day.speed + " mph</p>";
+        content += "<p><span>Pressure</span>: " + day.pressure + "</p></div>"
+    });
+
+    $('#current-weather').append(content);
+    var map = new google.maps.Map(document.getElementById('map'), {
+	          zoom: 12,
+	          center: {lat: 29.4241, lng: -98.4936}
+	        });
+  });
+// ---- Google maps
+
+
+$('#submit-location').click(searchLocation);
+
+  })();
+  </script>
+  </body>
+</html>
