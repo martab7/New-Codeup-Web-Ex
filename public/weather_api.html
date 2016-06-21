@@ -14,6 +14,8 @@
 
       <!-- Three columns of text below the carousel -->
       <div id="current-weather" class="row">
+
+
       </div>
       <div class="search" align="center">
         <form class="search_bar col-sm-4" role="search">
@@ -37,22 +39,35 @@
   <script>
   (function() {
 
-  var latitude = 29.423017;
-  var longitude = -98.48527;
-  var map;
+  var yourPosition = {
+    lat: 29.423017,
+    lng: -98.48527
+  };
+  var map = new google.maps.Map(document.getElementById('map'), {
+  	zoom: 12,
+  	center: {lat: 29.4241, lng: -98.4936}
+  	});
+
   var searchLocation;
-  var content = " ";
+
+  var marker = new google.maps.Marker({
+  map: map,
+  draggable: true,
+  animation: google.maps.Animation.DROP,
+  position: yourPosition,
+  });
 
 function weatherAPI() {
   $.ajax("http://api.openweathermap.org/data/2.5/forecast/daily", {
       data: {
           APPID: "c30e7489481df419a846324750b18794",
-          lat:    latitude,
-          lon:   longitude,
+          lat:   yourPosition.lat,
+          lon:   yourPosition.lng,
           units: "imperial",
           cnt: 3
       }
   }).done(function(weather) {
+      var content = " ";
     weather.list.forEach(function(day){
       var date = new Date(day.dt*1000);
         content += "<div class='col-sm-4 day' align='center'><p id='timestamp'>" + date + "</p>";
@@ -63,16 +78,9 @@ function weatherAPI() {
         content += "<p><span>Wind</span>: " + day.speed + " mph</p>";
         content += "<p><span>Pressure</span>: " + day.pressure + "</p></div>"
     });
-    $('#current-weather').append(content);
+    $('#current-weather').html(content);
   });
 };
-
-weatherAPI();
-
-map = new google.maps.Map(document.getElementById('map'), {
-	zoom: 12,
-	center: {lat: 29.4241, lng: -98.4936}
-	});
 
 searchLocation = function() {
   content = " ";
@@ -85,11 +93,10 @@ searchLocation = function() {
   geocoder.geocode({ "address": address }, function(results, status) {
 
   if (status == google.maps.GeocoderStatus.OK) {
-    $('#current-weather').html('');
     map.setCenter(results[0].geometry.location);
-    latitude = results[0].geometry.location.lat();
-    longitude = results[0].geometry.location.lng();
+    yourPosition = results[0].geometry.location;
     weatherAPI();
+    marker.setPosition(yourPosition);
     geoMarker();
 
   } else {
@@ -99,24 +106,18 @@ searchLocation = function() {
 };
 
 function geoMarker() {
-  var marker = new google.maps.Marker({
-    map: map,
-    draggable: true,
-    animation: google.maps.Animation.DROP,
-    position: {lat: latitude, lng: longitude},
-  });
-
-google.maps.event.addListener(marker,'dragend',function(event) {
-          $('#current-weather').html('');
-          latitude = this.position.lat();
-          longitude = this.position.lng();
+  marker.addListener('dragend',function(event) {
+          yourPosition = event.latLng;
           weatherAPI();
       });
 };
+
+weatherAPI();
 geoMarker();
 $('#submit-location').click(function() {
     searchLocation();
 });
+
 
   })();
   </script>
