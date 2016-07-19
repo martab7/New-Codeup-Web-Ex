@@ -1,13 +1,9 @@
 <?php
-
 function pageController() {
-  $startingValue = 0;
+  $data = [];
+  require('ping-functions.php');
 
-  if(!isset($_GET['hit'])){
-    $data['value'] = $startingValue;
-  } else {
-    $data['value'] = $_GET['hit'];
-  }
+  $data['value'] = inputGet('hit');
 
   return $data;
 }
