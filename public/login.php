@@ -1,14 +1,17 @@
 <?php
+require('functions.php');
+
 function pageController() {
   session_start();
   $data = [];
   if (isset($_SESSION['logged_in_user'])) {
     header('Location: authorized.php');
+    exit;
   }
 
   if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $name = isset($_POST['name']) ? $_POST['name'] : '';
-    $password = isset($_POST['password']) ? $_POST['password'] : '';
+    $name = inputGet('name');
+    $password = inputGet('password');
     checkName($name, $password);
   }
   return $data;
@@ -18,8 +21,10 @@ function checkName ($name, $password){
   if ($name == 'guest' and $password == 'password'){
     $_SESSION['logged_in_user'] = $name;
     header('Location: authorized.php');
+    exit;
   } else {
     header('Location: HTTP/1.0 404 Not Found');
+    exit;
   }
 }
 extract(pageController());
