@@ -27,7 +27,7 @@ extract(pageController());
     <title>Server name generator</title>
 </head>
 <body>
-<h1> <?= $randomNoun ?> is sooooo <?= $randomAdjective ?></h1>
+<h1> <?= $randomNoun ?> is sooooo <? echo $randomAdjective ?></h1>
 <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
 <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js">
 </script>
