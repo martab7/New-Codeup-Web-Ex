@@ -1,12 +1,8 @@
 <?php
 session_start();
+require_once('../src/Auth.php');
 
-
-function clearSession() {
-    session_unset();
-    session_regenerate_id(true);
-}
-
-clearSession();
+Auth::logout();
 header('Location: login.php');
+exit;
 ?>

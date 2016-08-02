@@ -1,13 +1,10 @@
 <?php
 
 function pageController() {
-  $startingValue = 1;
+  $data=[];
+  require_once('../src/Input.php');
 
-  if(!isset($_GET['hit'])){
-    $data['value'] = $startingValue;
-  } else {
-    $data['value'] = $_GET['hit'];
-  }
+  $data['value'] = Input::get('hit');
 
   return $data;
 }

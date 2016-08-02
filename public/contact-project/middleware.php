@@ -1,4 +1,3 @@
-// Middleware
 <?php
 
 //gets file list of contacts(DB)
@@ -11,8 +10,13 @@ function loadContacts()
         $contact = explode('|', $line);
         addContact($contacts, $contact[0], $contact[1]);
     }
+    if(isset($_GET['search-name'])){
+      $match = searchContact($contacts, $_GET['search-name']);
+      $contactstoview=$match;
+      return $contactstoview;
+    }
     return $contacts;
-}
+  }
 
 //saves user input contact
 function saveContacts($contacts)

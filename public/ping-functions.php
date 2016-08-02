@@ -16,12 +16,6 @@ function inputGet($key) {
   }
 }
 
-// if(!isset($_GET['hit'])){
-//   $data['value'] = $startingValue;
-// } else {
-//   $data['value'] = $_GET['hit'];
-// }
-
 function escape($input) {
   return htmlspecialchars(strip_tags($input));
 }

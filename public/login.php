@@ -1,33 +1,20 @@
 <?php
+require_once('../src/Auth.php');
 require('functions.php');
+
 
 function pageController() {
   session_start();
-  $data = [];
-  if (isset($_SESSION['logged_in_user'])) {
-    header('Location: authorized.php');
-    exit;
-  }
 
   if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $name = inputGet('name');
+    $username = inputGet('name');
     $password = inputGet('password');
-    checkName($name, $password);
+    Auth::attempt($username, $password) ? header('Location: authorized.php') : header('Location: login.php');
+    exit;
   }
-  return $data;
 }
 
-function checkName ($name, $password){
-  if ($name == 'guest' and $password == 'password'){
-    $_SESSION['logged_in_user'] = $name;
-    header('Location: authorized.php');
-    exit;
-  } else {
-    header('Location: HTTP/1.0 404 Not Found');
-    exit;
-  }
-}
-extract(pageController());
+pageController();
 ?>
 
 

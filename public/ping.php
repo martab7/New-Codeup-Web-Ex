@@ -1,9 +1,9 @@
 <?php
 function pageController() {
   $data = [];
-  require('ping-functions.php');
+  require_once('../src/Input.php');
 
-  $data['value'] = inputGet('hit');
+  $data['value'] = Input::get('hit');
 
   return $data;
 }

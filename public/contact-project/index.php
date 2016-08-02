@@ -1,5 +1,6 @@
 <?php
 require('controller-index.php');
+loadContacts();
 ?>
 
 <!DOCTYPE html>
@@ -15,6 +16,13 @@ require('controller-index.php');
             crossorigin="anonymous"
         >
         <title>Contacts manager</title>
+        <style>
+          body{
+            background-image:url("img/skeleton.gif");
+            background-repeat:repeat;
+            background-color: papayawhip;
+          }
+        </style>
     </head>
     <body>
         <div class="container">
@@ -22,18 +30,20 @@ require('controller-index.php');
                 <div class="col-md-8">
                     <header class="page-header">
                         <h1>Contacts Manager</h1>
+                        <a href="index.php">Home</a>
                     </header>
                 </div>
                 <div class="col-md-4" style="padding-top: 3.5em">
-                    <form class="form-inline" method="get">
+                    <form class="form-inline" method="get" name="search-name">
                         <div class="form-group">
-                            <input
+                        <input
                                 type="text"
                                 class="form-control"
                                 id="search-name"
-                                placeholder="John Doe">
+                                placeholder="John Doe"
+                                name="search-name">
                         </div>
-                        <button type="submit" class="btn btn-default">
+                        <button autofocus type="submit" class="btn btn-default">
                             <span class="glyphicon glyphicon-search" aria-hidden="true">
                             </span>
                             Search
@@ -43,6 +53,7 @@ require('controller-index.php');
             </section>
             <article class="row contacts">
                 <section class="col-md-6">
+                  <form method="POST">
                     <table class="table table-striped table-bordered table-hover">
                         <thead>
                             <tr>
@@ -53,9 +64,10 @@ require('controller-index.php');
                         </thead>
                         <tbody>
                             <!-- Your contacts should be here -->
-                            <?= viewContacts($contacts) ?>
+                            <?= viewContacts($contactstoview) ?>
                         </tbody>
                     </table>
+                  </form>
                 </section>
                 <section class="col-md-6">
                     <form method="post" class="form-horizontal">
@@ -83,15 +95,18 @@ require('controller-index.php');
                                     id="number">
                             </div>
                         </div>
-                        <div class="form-group">
+                        <form method="POST">
+                        <div class="form-group" name="save">
                             <div class="col-sm-offset-2 col-sm-10">
-                                <button type="submit" class="btn btn-primary">
+                                <button type="submit" class="btn btn-primary" name="save">
+
                                     <span class="glyphicon glyphicon-floppy-disk" aria-hidden="true">
                                     </span>
                                     Save
                                 </button>
                             </div>
                         </div>
+                        </form>
                     </form>
                 </section>
             </article>

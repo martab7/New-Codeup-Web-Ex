@@ -14,43 +14,31 @@ function addContact(&$contacts, $name, $number)
 function searchContact($contacts, $name)
 {
     $matches = [];
-    foreach ($contacts as $contact) {
-        if (strpos($contact['name'], $name) !== false) {
-            $matches[] = $contact;
-        }
+    if(strlen($name)>0){
+      foreach ($contacts as $contact) {
+          if (stripos($contact['name'],$name)!==false) {
+              $matches[] = $contact;
+          }
+      }
+      return $matches;
+    }else{
+      return $contacts;
     }
-    return $matches;
+    return $matches[0];
 }
 
 //finds contact and DELETES
-function deleteContacts(&$contacts, $name)
-{
-  if(inputGet($name) == $name) {
+function deleteContacts(&$contacts, $name) {
+  if($name) {
     $contactToBeDeleted = searchContact($contacts, $name);
-    $contactString = implode('|', $contactToBeDeleted);
-
+    $contactString = implode('|', $contactToBeDeleted[0]);
     $contents = file_get_contents('contacts.txt');
-    $contents = str_replace($contactString . PHP_EOL, '', $contents);
+    $contents = str_replace($contactString, '', $contents);
     file_put_contents('contacts.txt', trim($contents));
   } else {
-    alert('Cannot delete contact.');
+    print '<script type="text/javascript">';
+    print 'alert("Unable to delete contact.")';
+    print '</script>';
   }
 }
 ?>
-
-<!-- function deleteContact(&$allContacts, $nameDelete) {
-  $contactToBeDeleted = searchContact($allContacts, $nameDelete);
-  $contactString = implode('|', $contactToBeDeleted);
-
-  $contents = file_get_contents('contacts.txt');
-  $contents = str_replace($contactString . PHP_EOL, '', $contents);
-  file_put_contents('contacts.txt', trim($contents));
-}
-
-function searchContact(&$allContacts, $nameSearch) {
-    foreach ($allContacts as $contact) {
-        if (strpos($contact['name'], $nameSearch) !== false) {
-          return $contact;
-        }
-    }
-} -->

@@ -1,19 +1,16 @@
 <?php
+require_once('../src/Auth.php');
+
 function pageController(){
   session_start();
 
-  $data = [];
-
-  if (isset($_SESSION['logged_in_user'])) {
-    $data['name'] = 'Guest';
-  } else {
+  if(!Auth::check()) {
     header('Location: login.php');
-  }
-
-  return $data;
+    exit;
+  };
 }
 
-extract(pageController());
+pageController();
 ?>
 
 <!DOCTYPE html>
@@ -24,11 +21,9 @@ extract(pageController());
   </head>
   <body>
     <h1>Authorized to continue</h1>
-    <h2>Welcome: <?= $name ?></h2>
+    <h2>Welcome: <?= Auth::user() ?></h2>
     <h3>This is a psuedo facebook page</h3>
     <br>
-
-    <a href="login.php">Logout</a>
 
     <a href="logout.php">Logout</a>
 
