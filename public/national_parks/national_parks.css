@@ -1,0 +1,54 @@
+body {
+  min-height: 2000px;
+  color: #000;
+  padding-bottom: 20px;
+  background-color: #AFC3A7;
+}
+
+header {
+  background-color: #497637;
+}
+
+.jumbotron {
+  margin-top: -20px;
+  width: 100%;
+  height: 300px;
+  background-image: url('../img/Jasper_National_Park_banner.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+.navbar-static-top {
+  margin-bottom: 19px;
+  background-color: #497637;
+}
+
+.navbar-default .navbar-brand {
+    color: #000;
+    font-weight: bolder;
+}
+
+.navbar-default .navbar-toggle {
+    border-color: #000;
+}
+
+.navbar-default .navbar-toggle .icon-bar {
+    background-color: #000;
+}
+
+.container{
+  color: #AFC3A7;
+}
+
+sup{
+  vertical-align: super;
+    font-size: 8px;
+}
+
+.main {
+  padding: 20px 50px 20px 50px;
+}
+
+.table {
+  background-color: #DDF6D3;
+}
