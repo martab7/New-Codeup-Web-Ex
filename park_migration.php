@@ -1,5 +1,5 @@
 <?php
-require ('parks_constants.php');
+require ('park_constants.php');
 
 require ('db_connect.php');
 
@@ -12,6 +12,7 @@ $query = 'CREATE TABLE national_parks (
     location VARCHAR(50) NOT NULL,
     date_established date not null,
     area_in_acres double not null,
+    description text,
     PRIMARY KEY (id)
 )';
 
