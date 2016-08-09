@@ -36,4 +36,33 @@ class Input
      * Prevent the creation of instances of this class
      */
     private function __construct() {}
+
+    public static function getString($key){
+      $value = self::get($key);
+      if(!is_string($value)){
+        throw new InvalidEntry("Error: Input must be a string.");
+      }
+
+      $value = trim($value);
+
+      if(empty($value)){
+        throw new EmptyEntry("Error: Input is empty.");
+      }
+
+      return $value;
+    }
+
+    public static function getNumber($key){
+      $value = self::get($key);
+      if(!is_numeric($value)){
+        throw new InvalidEntry("Error: Input must be a number.");
+      }
+
+      if(empty($value)) {
+        throw new EmptyEntry("Error: Input is empty");
+      }
+      $value = floatval($value);
+
+      return $value;
+    }
 }

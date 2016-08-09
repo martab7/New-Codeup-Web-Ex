@@ -1,21 +1,57 @@
 <?php
 require __DIR__ . '/../../park_constants.php';
 require __DIR__ . '/../../db_connect.php';
+
+class InvalidEntry extends Exception {};
+class EmptyEntry extends InvalidEntry {};
+
 require ('Input.php');
 
 function pageController($dbc)
 {
     require('controller-index.php');
     $newPark = [];
-
-    // The player's identifier should be in the query string
-    $newParkName = Input::get('name');
-    $newLocation = Input::get('location');
+    $error = [];
+    $newLocation = Input::getString('location');
     $newDate = isDate(formatDate(Input::get('date')));
-    $newArea = Input::get('area_in_acres');
-    $newDescription = Input::get('description');
 
-    if($newParkName != null && $newLocation != NULL && $newDate != NULL && $newArea != NULL && $newDescription != NULL){
+    $error = array(
+      'name' => 'Name',
+      'area' => 0,
+      'description' => 'Description'
+    );
+
+    try {
+      $newParkName = Input::getString('name');
+    } catch (EmptyEntry $e) {
+      $error['name'] = 'Name was empty.';
+    } catch (InvalidEntry $e) {
+      $error['name'] = 'Invalid type for entry.';
+    } catch (Exception $e){
+      $error['name'] = 'An error occured.';
+    }
+
+    try {
+      $newArea = Input::getNumber('area_in_acres');
+    } catch (EmptyEntry $e) {
+      $error['area'] = 'Area was empty';
+    } catch (InvalidEntry $e) {
+      $error['area'] = 'Invalid type for entry.';
+    } catch (Exception $e){
+      $error['area'] = 'An error occured.';
+    }
+
+    try {
+      $newDescription = Input::getString('description');
+    } catch (EmptyEntry $e) {
+      $error['description'] = 'Description is empty';
+    } catch (InvalidEntry $e) {
+      $error['description'] = 'Invalid type for entry.';
+    } catch (Exception $e){
+      $error['description'] = 'An error occured.';
+    }
+
+    if($error['name'] == 'Name' && $error['area'] == 0 && $error['description'] == 'Description'){
       $stmt = $dbc->prepare('INSERT INTO national_parks (name, location, date_established, area_in_acres, description)
           VALUES(:name, :location, :date_established, :area_in_acres, :description)');
       $stmt->bindValue(':name', $newParkName, PDO::PARAM_STR);
@@ -26,9 +62,9 @@ function pageController($dbc)
       $stmt->execute();
     };
 
-    var_dump($newDate);
+    return $error;
 }
-pageController($dbc);
+extract(pageController($dbc));
 
 ?>
 
@@ -108,7 +144,7 @@ pageController($dbc);
                     class="form-control"
                     name="name"
                     id="name"
-                    placeholder="Park Name"
+                    placeholder=<?= $name ?>
                 >
             </div>
         </div>
@@ -142,7 +178,7 @@ pageController($dbc);
                   class="form-control"
                   name="area_in_acres"
                   id="area_in_acres"
-                  placeholder="km"
+                  placeholder=<?= $area ?>
               >
           </div>
         </div>
@@ -156,7 +192,7 @@ pageController($dbc);
                   class="form-control"
                   name="description"
                   id="description"
-                  placeholder="Best park in the nation!"
+                  placeholder=<?= $description ?>
               >
           </div>
         </div>
